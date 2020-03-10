@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 
 namespace Shipping.Models
@@ -9,6 +8,7 @@ namespace Shipping.Models
     public int Width {get; set;}
     public int Height {get; set;}
     public int Weight {get; set;}
+    public int Volume {get; set;}
     public string Destination{get; set;}
     public Dictionary <string, int> Cities = new Dictionary <string, int>()
     {
@@ -32,11 +32,20 @@ namespace Shipping.Models
       Width = width;
       Height = height;
       Weight = weight;
+      Volume = Length * Width * Height;
     }
 
-    public int Volume()
+    public int CostToShip()
     {
-      return Length * Width * Height;
+      int finalCost = 1;
+      foreach (KeyValuePair<string, int> city in Cities)
+      {
+        if (city.Key == Destination)
+        {
+          finalCost *= city.Value;
+        }
+      }
+      return finalCost * Weight * Volume / 10;
     }
 
   }
