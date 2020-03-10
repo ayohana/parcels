@@ -1,0 +1,8 @@
+@using Shipping.Models;
+@{
+  ViewBag.Title = "Shipping Company";
+  Layout = "_Layout";
+}
+
+<h4>Here's your Final Cost:</h1>
+<h1>$@Model.CalculateFinalCost()</h1>

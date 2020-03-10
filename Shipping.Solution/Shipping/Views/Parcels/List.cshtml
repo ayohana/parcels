@@ -18,9 +18,11 @@ else
         <ul>
           <li>Weight = @item.Weight</li>
           <li>Volume = @item.Volume</li>
-          <li>Parcel cost = @item.CostToShip()</li>
+          <li>Parcel cost = $@item.CostToShip()</li>
         </ul>
       </li>
     }
   </ul>
 }
+
+<button type="submit" formaction="/parcel/finalOrder">Submit Final Order</button>

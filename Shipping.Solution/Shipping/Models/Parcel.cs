@@ -9,6 +9,7 @@ namespace Shipping.Models
     public int Height {get; set;}
     public int Weight {get; set;}
     public int Volume {get; set;}
+    public int ParcelCost {get; set;}
     public string Destination{get; set;}
     public Dictionary <string, int> Cities = new Dictionary <string, int>()
     {
@@ -36,25 +37,36 @@ namespace Shipping.Models
       Weight = weight;
       Volume = Length * Width * Height;
       Destination = destination;
+      ParcelCost = CostToShip();
       _parcels.Add(this);
     }
 
     public int CostToShip()
     {
-      int finalCost = 1;
+      int parcelCost = 1;
       foreach (KeyValuePair<string, int> city in Cities)
       {
         if (city.Key == Destination)
         {
-          finalCost *= city.Value;
+          parcelCost *= city.Value;
         }
       }
-      return finalCost * Weight * Volume / 10;
+      return parcelCost * Weight * Volume / 10;
     }
 
     public static List <Parcel> GetAll()
     {
       return _parcels;
+    }
+
+    public static int CalculateFinalCost()
+    {
+      int finalCost = 0;
+      foreach (Parcel item in _parcels)
+      {
+        finalCost += item.ParcelCost;
+      }
+      return finalCost;
     }
 
   }
