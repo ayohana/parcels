@@ -8,7 +8,7 @@ namespace Shipping.Controllers
   {
 
     [HttpGet("/parcel/list")]
-    public ActionResult Index()
+    public ActionResult List()
     {
       List <Parcel> allParcels = Parcel.GetAll();
       return View(allParcels);
@@ -24,7 +24,7 @@ namespace Shipping.Controllers
     public ActionResult CreateParcel(int length, int width, int height, int weight, string destination)
     {
       Parcel newParcel = new Parcel(length, width, height, weight, destination);
-      return View("Index", newParcel);
+      return RedirectToAction("List");
     }
 
   }

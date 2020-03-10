@@ -36,6 +36,7 @@ namespace Shipping.Models
       Weight = weight;
       Volume = Length * Width * Height;
       Destination = destination;
+      _parcels.Add(this);
     }
 
     public int CostToShip()
