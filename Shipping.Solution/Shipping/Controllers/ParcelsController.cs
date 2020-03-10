@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
-using ProjectName.Models;
+using Shipping.Models;
 using System.Collections.Generic;
 
-namespace ProjectName.Controllers
+namespace Shipping.Controllers
 {
-  public class ClassesNameController : Controller
+  public class ParcelsController : Controller
   {
 
     // HttpGet and HttpPost routes go here
