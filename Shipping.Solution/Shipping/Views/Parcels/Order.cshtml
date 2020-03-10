@@ -1,8 +1,14 @@
-@using Shipping.Models;
 @{
   ViewBag.Title = "Shipping Company";
   Layout = "_Layout";
 }
-
-<h4>Here's your Final Cost:</h1>
-<h1>$@Model.CalculateFinalCost()</h1>
+<img src="https://mens-wpengine.netdna-ssl.com/wp-content/uploads/2014/12/million-dollar-question-500-x-250.jpg" class="img-fluid" alt="">
+@if (@Model != 0)
+{
+  <h4>Here's your Final Cost:</h4>
+  <h1>$@Model</h1>
+}
+else
+{
+  <h4>You don't have orders yet.</h4>
+}

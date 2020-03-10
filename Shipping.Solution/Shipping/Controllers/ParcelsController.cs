@@ -6,11 +6,11 @@ namespace Shipping.Controllers
 {
   public class ParcelsController : Controller
   {
+    public List <Parcel> allParcels = Parcel.GetAll();
 
     [HttpGet("/parcel/list")]
     public ActionResult List()
     {
-      List <Parcel> allParcels = Parcel.GetAll();
       return View(allParcels);
     }
 
@@ -27,7 +27,11 @@ namespace Shipping.Controllers
       return RedirectToAction("List");
     }
 
-
+    [HttpGet("/parcel/finalOrder")]
+    public ActionResult Order()
+    {
+      return View(Parcel.CalculateFinalCost());
+    }
 
   }
 }
