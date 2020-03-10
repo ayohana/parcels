@@ -1,0 +1,40 @@
+@{
+  ViewBag.Title = "Shipping Company";
+  Layout = "_Layout";
+}
+<form action="/parcel/list" method="post">
+  <div class="form-group">
+    <label for="length">Length:</label>
+    <input name="length" id="length" type="number"/>
+  </div>
+  <div class="form-group">
+    <label for="width">Width:</label>
+    <input name="width" id="width" type="number"/>
+  </div>
+  <div class="form-group">
+    <label for="height">Height:</label>
+    <input name="height" id="height" type="number"/> 
+  </div>
+  <div class="form-group">
+    <label for="weight">Weight:</label>
+    <input name="weight" id="weight" type="number"/> 
+  </div>  
+  <div class="form-group">
+    <label for="destination">What is your parcel's destination?</label>
+    <select class="form-control" id="destination">
+      <option>Atlanta</option>
+      <option>Boston</option>
+      <option>Chicago</option>
+      <option>Clevelend</option>
+      <option>Dallas</option>
+      <option>Denver</option>
+      <option>Detroit</option>
+      <option>Houston</option>
+      <option>Las Vegas</option>
+      <option>Los Angeles</option>
+      <option>New York</option>
+      <option>Philadelphia</option>
+    </select>   
+  </div>
+  <button type="submit">Add my parcel</button>
+</form>

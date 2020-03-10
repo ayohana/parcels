@@ -26,13 +26,16 @@ namespace Shipping.Models
       {"Philadelphia ", 2840}
     };
 
-    public Parcel(int length, int width, int height, int weight)
+    private static List <Parcel> _parcels = new List <Parcel> {};
+
+    public Parcel(int length, int width, int height, int weight, string destination)
     {
       Length = length;
       Width = width;
       Height = height;
       Weight = weight;
       Volume = Length * Width * Height;
+      Destination = destination;
     }
 
     public int CostToShip()
@@ -46,6 +49,11 @@ namespace Shipping.Models
         }
       }
       return finalCost * Weight * Volume / 10;
+    }
+
+    public static List <Parcel> GetAll()
+    {
+      return _parcels;
     }
 
   }

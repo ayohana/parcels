@@ -1,0 +1,18 @@
+@using Shipping.Models;
+@{
+  ViewBag.Title = "Shipping Company";
+  Layout = "_Layout";
+}
+<h1>Here's your list of parcels:</h1>
+<ul>
+  @foreach (Parcel item in Model)
+  {
+    <li>Parcel destination = @item.Destination
+      <ul>
+        <li>Weight = @item.Weight</li>
+        <li>Volume = @item.Volume</li>
+        <li>Parcel cost = @item.CostToShip()</li>
+      </ul>
+    </li>
+  }
+</ul>

@@ -7,7 +7,25 @@ namespace Shipping.Controllers
   public class ParcelsController : Controller
   {
 
-    // HttpGet and HttpPost routes go here
+    [HttpGet("/parcel/list")]
+    public ActionResult Index()
+    {
+      List <Parcel> allParcels = Parcel.GetAll();
+      return View(allParcels);
+    }
+
+    [HttpGet("/parcel/new")]
+    public ActionResult CreateForm()
+    {
+      return View();
+    }
+
+    [HttpPost("/parcel/list")]
+    public ActionResult CreateParcel(int length, int width, int height, int weight, string destination)
+    {
+      Parcel newParcel = new Parcel(length, width, height, weight, destination);
+      return View("Index", newParcel);
+    }
 
   }
 }
