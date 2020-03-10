@@ -2,6 +2,11 @@
   ViewBag.Title = "Shipping Company";
   Layout = "_Layout";
 }
+
+<div class="jumbotron">
+<h3>Fill this form for parcel cost calculation:</h3>
+</div>
+
 <form action="/parcel/list" method="post">
   <div class="form-group">
     <label for="length">Length:</label>
@@ -36,7 +41,7 @@
       <option value="Philadelphia">Philadelphia</option>
     </select>   
   </div>
-  <button type="submit">Add my parcel</button>
+  <button type="submit" class="btn btn-info btn-lg btn-primary">Add my parcel</button>
 </form>
 
 <p><a href="/parcel/finalOrder">See your final order of parcels</a></p>

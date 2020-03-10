@@ -1,0 +1,17 @@
+body {
+  background-color: darkslategrey;
+  color: white;
+  text-align: center;
+}
+
+a {
+  color: rgb(178, 178, 247);
+}
+
+a:hover {
+  color: whitesmoke;
+}
+
+.jumbotron {
+  background-color: rgb(37, 51, 51);
+}
